@@ -1,0 +1,6 @@
+ro.display.series=Motorola G40/60
+product.board=sm6150
+ro.board.platform=sm6150
+ro.crypto.volume.filenames_mode=aes-256-cts
+ro.vendor.qti.va_aosp.support=1
+ro.product.first_api_level=30

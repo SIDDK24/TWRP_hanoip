@@ -1,0 +1,22 @@
+import /init.recovery.qcom_decrypt.rc
+
+on fs
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+on early-init
+	start runatboot
+
+on boot
+    setprop sys.usb.config adb
+	start health-hal-2-1
+
+on post-fs
+    start boot-hal-1-1
+	
+service runatboot /system/bin/runatboot.sh
+    oneshot
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
